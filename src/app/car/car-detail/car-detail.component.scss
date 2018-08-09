@@ -1,0 +1,101 @@
+$bg-color: #607d8b;
+$nav-color: #3f51b5;
+
+@mixin verticalLine {
+  height: 80%;
+  border: 1px none white;
+  border-left-style: solid;
+  margin: 0 50px;
+}
+
+@mixin fieldsetUserHome {
+  width: 30%;
+  height: 80%;
+  padding: 50px;
+  border: 1px none white;
+  border-top-style: solid;
+  legend {
+    color: white;
+    font-size: 1.2em;
+  }
+}
+
+@mixin buttonStyle {
+  background-color: $bg-color;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+}
+
+
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  height: 350px;
+  fieldset.recent {
+    @include fieldsetUserHome;
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    div.recent-items {
+      color: white;
+      margin: 10px;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      font-size: 1.2em;
+      button {
+        @include buttonStyle;
+      }
+      button:hover {
+        background-color: $nav-color;
+      }
+    }
+  }
+  span {
+    @include verticalLine;
+  }
+  fieldset.cards {
+    @include fieldsetUserHome;
+    display: flex;
+    flex-wrap: wrap;
+    .car-data {
+      width: 250px;
+      height: 100px;
+      background-color: #f5fafc;
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      padding: 15px 0;
+      margin: 5px;
+      h3 {
+        text-align: left;
+        width: 80%;
+        font-size: 2em;
+        text-transform: lowercase;
+        font-weight: lighter;
+      }
+      hr {
+        color: #8b8b8b;
+        width: 80%;
+        border: 1px solid;
+      }
+      p {
+        text-align: right;
+        width: 80%;
+        font-size: 2em;
+        color: #8b8b8b;
+        font-style: italic;
+      }
+    }
+  }
+}

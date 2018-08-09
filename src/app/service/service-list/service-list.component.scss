@@ -1,0 +1,54 @@
+$nav-color: #3f51b5;
+$bg-color: #607d8b;
+
+@mixin buttonStyle {
+  background-color: $bg-color;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+}
+
+section {
+  margin-top: 50px;
+  text-align: center;
+  table {
+    width: 80%;
+    margin: auto;
+    color: white;
+    border-spacing: 0;
+    border-collapse: collapse;
+    th, td {
+      border: 1px solid white;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+    tr {
+      height: 50px;
+    }
+    tbody {
+      tr:nth-child(odd) {
+        background-color: #8b8b8b;
+      }
+      tr:hover {
+        cursor: pointer;
+        background-color: $nav-color;
+      }
+    }
+    td {
+      text-align: center;
+    }
+  }
+  button {
+    @include buttonStyle;
+    margin-top: 25px;
+  }
+
+  button:hover {
+    background-color: $nav-color;
+  }
+}

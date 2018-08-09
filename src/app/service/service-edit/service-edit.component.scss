@@ -1,0 +1,116 @@
+$bg-color: #607d8b;
+$nav-color: #3f51b5;
+$marginTop: 20px auto;
+
+@mixin verticalLine {
+  height: 80%;
+  border: 1px none white;
+  border-left-style: solid;
+  margin: 0 50px;
+}
+
+@mixin buttonStyle {
+  background-color: $bg-color;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+}
+
+@mixin borderBox {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+h2{
+  text-align: center;
+  margin: $marginTop;
+  color: white;
+}
+
+section {
+  margin-top: 50px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  form {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div.form-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 45%;
+      height: 100%;
+      label {
+        color: white;
+        margin-bottom: 10px;
+      }
+      textarea {
+        @include borderBox;
+        width: 100%;
+        height: 70%;
+        resize: none;
+        border: none;
+        border-radius: 15px;
+        padding: 15px;
+        font-size: 1.5em;
+      }
+      button {
+        @include buttonStyle;
+        width: 25%;
+        margin-top: 5px;
+        padding: 5px;
+      }
+      button:hover {
+        background-color: $nav-color;
+      }
+    }
+    span {
+      @include verticalLine;
+    }
+    div.form-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 45%;
+      height: 100%;
+      div.group {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        input {
+          width: 45%;
+        }
+      }
+      div {
+        width: 100%;
+        div.icon-input {
+          display: flex;
+          align-items: center;
+          i {
+            z-index: 1;
+            color: $nav-color;
+          }
+          input {
+            @include borderBox;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 7px;
+            padding: 10px 10px 10px 30px;
+            width: 100%;
+            position: relative;
+            left: -25px;
+          }
+        }
+      }
+    }
+  }
+}
