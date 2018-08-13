@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CarService} from '../car.service';
 import {Car} from '../car.model';
 import {Subscription} from 'rxjs';
+import {log} from 'util';
 
 @Component({
   selector: 'app-car-list',
@@ -17,6 +18,9 @@ export class CarListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.cars = this.carServ.getCars();
+    if (this.cars.length === 0) {
+      console.log('NO CARS');
+    }
     this.carsChanges = this.carServ.carsChanged.subscribe(
       () => {
         this.cars = this.carServ.getCars();
