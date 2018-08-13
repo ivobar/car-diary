@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {CarDetailComponent} from './car-detail/car-detail.component';
 import {CarListComponent} from './car-list/car-list.component';
 import {CarEditComponent} from './car-edit/car-edit.component';
+import {CarService} from './car.service';
 
 const carRoutes: Routes = [
   {
@@ -22,6 +23,9 @@ const carRoutes: Routes = [
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    CarService
   ]
 })
 export class CarRoutingModule {

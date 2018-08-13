@@ -19,8 +19,8 @@
       <p>129000</p>
     </div>
     <div class="recent-items">
-      <button routerLink="/car/id/services/add">Add service</button>
-      <button routerLink="/car/id/services">View all</button>
+      <button [routerLink]="['/car',carId,'services','add']">Add service</button>
+      <button [routerLink]="['/car',carId,'services']">View all</button>
     </div>
   </fieldset>
   <span></span>
@@ -29,7 +29,7 @@
     <div class="car-data">
       <h3>km</h3>
       <hr>
-      <p>150000</p>
+      <p>{{car.km}}</p>
     </div>
     <div class="car-data">
       <h3>Каско</h3>

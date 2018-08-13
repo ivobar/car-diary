@@ -25,7 +25,7 @@ $marginTop: 20px auto;
   box-sizing: border-box; /* Opera/IE 8+ */
 }
 
-h2{
+h2 {
   text-align: center;
   margin: $marginTop;
   color: white;
@@ -99,7 +99,7 @@ section {
             z-index: 1;
             color: $nav-color;
           }
-          input {
+          input, select {
             @include borderBox;
             font-size: 1.2em;
             border: none;

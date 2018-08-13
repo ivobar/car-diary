@@ -1,4 +1,5 @@
-<section>
+<app-loader *ngIf="cars.length===0"></app-loader>
+<section *ngIf="!(cars.length===0)">
   <table>
     <thead>
     <tr>
@@ -8,20 +9,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr routerLink="car/detail/1">
-      <td>Your mom's BMW</td>
-      <td>BMW</td>
-      <td>Your mom</td>
-    </tr>
-    <tr routerLink="car/detail/2">
-      <td>Your mom's BMW</td>
-      <td>BMW</td>
-      <td>Your mom</td>
-    </tr>
-    <tr routerLink="car/detail/3">
-      <td>Your mom's BMW</td>
-      <td>BMW</td>
-      <td>Your mom</td>
+    <tr *ngFor="let car of cars; let i = index" [routerLink]="['car','detail',i]">
+      <td>{{car.name}}</td>
+      <td>{{car.km}}</td>
+      <td>{{car.driver}}</td>
     </tr>
   </table>
   <button routerLink="car/add">Add car</button>

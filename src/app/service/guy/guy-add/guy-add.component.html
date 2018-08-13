@@ -1,0 +1,19 @@
+<section>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <h2>Add a guy:</h2>
+    <div>
+      <label for="guyName">Guy name:</label>
+      <input id="guyName" type="text" ngModel name="guyName" required>
+    </div>
+    <div>
+      <label for="phone">Phone:</label>
+      <input id="phone" type="text" ngModel name="phone" required>
+    </div>
+    <div>
+      <label for="location">Location:</label>
+      <input id="location" type="text" ngModel name="location" required>
+    </div>
+    <button type="submit" [disabled]="!f.valid">Save guy</button>
+    <button type="button">Cancel</button>
+  </form>
+</section>

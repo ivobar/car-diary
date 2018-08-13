@@ -1,48 +1,25 @@
 <app-car-head></app-car-head>
 <section>
-  <table>
+  <h3 *ngIf="!showServs">There are no services added for this car!</h3>
+  <table *ngIf="showServs">
     <thead>
     <tr>
       <th>No</th>
       <th>Description</th>
-      <th>Data</th>
+      <th>Date</th>
       <th>km</th>
       <th>Price</th>
       <th>Guy</th>
     </tr>
     </thead>
     <tbody>
-    <tr routerLink="details/:serviceId">
-      <td>2018072901</td>
-      <td>Смяна на масло и всички филтри</td>
-      <td>29/07/2018</td>
-      <td>157 000</td>
-      <td>180лв</td>
-      <td>Борето</td>
-    </tr>
-    <tr routerLink="details/:serviceId">
-      <td>2018072901</td>
-      <td>Смяна на масло и всички филтри</td>
-      <td>29/07/2018</td>
-      <td>157 000</td>
-      <td>180лв</td>
-      <td>Борето</td>
-    </tr>
-    <tr routerLink="details/:serviceId">
-      <td>2018072901</td>
-      <td>Смяна на масло и всички филтри</td>
-      <td>29/07/2018</td>
-      <td>157 000</td>
-      <td>180лв</td>
-      <td>Борето</td>
-    </tr>
-    <tr routerLink="details/:serviceId">
-      <td>2018072901</td>
-      <td>Смяна на масло и всички филтри</td>
-      <td>29/07/2018</td>
-      <td>157 000</td>
-      <td>180лв</td>
-      <td>Борето</td>
+    <tr *ngFor="let service of services;let i = index" [routerLink]="['details',i]">
+      <td>{{i}}</td>
+      <td>{{service.description}}</td>
+      <td>{{service.date}}</td>
+      <td>{{service.km}}</td>
+      <td>{{service.price}}</td>
+      <td>{{service.guy.name}}</td>
     </tr>
     </tbody>
   </table>

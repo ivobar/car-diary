@@ -1,21 +1,25 @@
 <section>
-  <form>
+  <form (ngSubmit)="onSave(f)" #f="ngForm">
     <h2>Add a car:</h2>
     <div>
       <label for="carName">Car name:</label>
-      <input id="carName" type="text">
+      <input id="carName" type="text" ngModel name="carName" required>
     </div>
     <div>
       <label for="carKm">Kilometers:</label>
-      <input id="carKm" type="text">
+      <input id="carKm" type="text" ngModel name="carKm" required>
+    </div>
+    <div>
+      <label for="driver">Driver:</label>
+      <input id="driver" type="text" ngModel name="driver" required>
     </div>
     <div>
       <label for="carImg">Car image:</label>
-      <input id="carImg" type="text">
+      <input id="carImg" type="text" ngModel name="carImg" required>
     </div>
     <div>
       <p>Preview</p>
-      <img src="https://media.wired.com/photos/59bafdf204afdc5248726f5c/master/w_582,c_limit/BMW-TA.jpg"
+      <img [src]="f.value.carImg"
            alt="car-image">
     </div>
     <div>
@@ -26,12 +30,12 @@
           <input id="insName" type="text">
         </div>
         <div>
-          <label for="insDate">Date</label>
+          <label for="insDate">Expiration Date</label>
           <input id="insDate" type="text">
         </div>
       </div>
     </div>
-    <button type="submit">Save car</button>
+    <button type="submit" [disabled]="!f.valid">Save car</button>
     <button type="button">Add insurance</button>
   </form>
 </section>

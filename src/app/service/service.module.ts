@@ -8,12 +8,14 @@ import {ServiceEditComponent} from './service-edit/service-edit.component';
 
 import {CarModule} from '../car/car.module';
 import {ServiceRoutingModule} from './service-routing.module';
+import {GuyAddComponent} from './guy/guy-add/guy-add.component';
 
 @NgModule({
   declarations: [
     ServiceListComponent,
     ServiceDetailComponent,
-    ServiceEditComponent
+    ServiceEditComponent,
+    GuyAddComponent
   ],
   imports: [
     CommonModule,
