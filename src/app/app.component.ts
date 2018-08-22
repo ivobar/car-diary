@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CarService} from './car/car.service';
 import {Car} from './car/car.model';
 import {Subscription} from 'rxjs';
+import {LoaderService} from './core/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,9 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.carSub = this.carService.loadCars().subscribe(
       (data: Car[]) => {
-        this.carService.setCars(data);
+        if (data !== null) {
+          this.carService.setCars(data);
+        }
       }
     );
   }

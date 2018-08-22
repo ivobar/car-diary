@@ -27,6 +27,7 @@ export class ServiceEditComponent implements OnInit {
     this.carId = +this.route.snapshot.params['id'];
     this.serService.loadGuys().subscribe(
       (guys: Guy[]) => {
+        console.log(guys);
         if (guys !== null) {
           this.serService.setGuys(guys);
           this.guys = [...this.serService.getGuys()];

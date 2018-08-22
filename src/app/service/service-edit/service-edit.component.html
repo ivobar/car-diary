@@ -1,6 +1,5 @@
-<app-car-head></app-car-head>
-<h2>Add service</h2>
-<section>
+<app-car-head *ngIf="guys"></app-car-head>
+<section *ngIf="guys">
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="form-left">
       <label for="description">Description</label>

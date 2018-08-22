@@ -7,15 +7,13 @@ import {CarDetailComponent} from './car-detail/car-detail.component';
 import {CarEditComponent} from './car-edit/car-edit.component';
 import {CarRoutingModule} from './car-routing.module';
 import {CarHeadComponent} from './car-head/car-head.component';
-import {LoaderComponent} from './loader/loader.component';
 
 @NgModule({
   declarations: [
     CarListComponent,
     CarDetailComponent,
     CarEditComponent,
-    CarHeadComponent,
-    LoaderComponent
+    CarHeadComponent
   ],
   imports: [
     CommonModule,

@@ -34,8 +34,10 @@ export class CarService {
       }
     }
     this.cars = [...cars];
-    this.carsAdded.next();
-    this.carsChanged.next();
+    if (this.cars.length !== 0) {
+      this.carsAdded.next();
+      this.carsChanged.next();
+    }
   }
 
   setCar(car: Car) {

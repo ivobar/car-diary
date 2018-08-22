@@ -27,6 +27,7 @@ export class CarEditComponent implements OnInit {
       services: [],
       insurances: []
     };
+    console.log(form);
     this.carSer.setCar(car);
     this.carSer.saveCars().subscribe(
       () => {
