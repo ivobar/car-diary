@@ -1,4 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
 import {CarService} from '../car.service';
 import {Car} from '../car.model';
 import {Subscription} from 'rxjs';
@@ -11,20 +13,26 @@ import {Subscription} from 'rxjs';
 export class CarListComponent implements OnInit, OnDestroy {
   cars: Car[];
   carsChanges: Subscription;
-  noCars = true;
+  carsSavedSub: Subscription;
 
-  constructor(private carServ: CarService) {
+  constructor(private carServ: CarService,
+              private router: Router) {
   }
 
   ngOnInit() {
     this.cars = this.carServ.getCars();
-    if (this.cars.length === 0) {
-      this.noCars = true;
-    }
     this.carsChanges = this.carServ.carsChanged.subscribe(
       () => {
         this.cars = this.carServ.getCars();
-        this.noCars = false;
+      }
+    );
+  }
+
+  onDeleteCar(id: number) {
+    this.carServ.deleteCar(id);
+    this.carsSavedSub = this.carServ.saveCars().subscribe(
+      () => {
+        this.router.navigate(['/']);
       }
     );
   }
@@ -32,5 +40,4 @@ export class CarListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.carsChanges.unsubscribe();
   }
-
 }

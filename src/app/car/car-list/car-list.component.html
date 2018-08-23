@@ -8,10 +8,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let car of cars; let i = index" [routerLink]="['car','detail',i]">
+    <tr *ngFor="let car of cars; let i = index">
       <td>{{car.name}}</td>
       <td>{{car.km}}</td>
       <td>{{car.driver}}</td>
+      <div class="util">
+        <i class="fas fa-eye" [routerLink]="['car','detail',i]"></i>
+        <i class="fas fa-pencil-alt"></i>
+        <i class="fas fa-trash" (click)="onDeleteCar(i)"></i>
+      </div>
     </tr>
   </table>
   <button routerLink="car/add">Add car</button>
