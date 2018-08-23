@@ -31,20 +31,10 @@
       <hr>
       <p>{{car.km}}</p>
     </div>
-    <div class="car-data">
-      <h3>Каско</h3>
+    <div class="car-data" *ngFor="let ins of car.insurances">
+      <h3>{{ins.insName}}</h3>
       <hr>
-      <p>29/07/2018</p>
-    </div>
-    <div class="car-data">
-      <h3>Гражданска</h3>
-      <hr>
-      <p>15/05/2020</p>
-    </div>
-    <div class="car-data">
-      <h3>Винетка</h3>
-      <hr>
-      <p>29/02/2019</p>
+      <p>{{ins.insDate}}</p>
     </div>
   </fieldset>
 </section>

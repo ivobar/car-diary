@@ -1,43 +1,54 @@
 <section>
-  <form (ngSubmit)="onSave(f)" #f="ngForm">
-    <div *ngIf="!f.submitted">
-      <h2>Add a car:</h2>
-      <div>
-        <label for="carName">Car name:</label>
-        <input id="carName" type="text" ngModel name="carName" required>
+  <form [formGroup]="form">
+    <h2>Add a car:</h2>
+    <div class="form-controls">
+      <div class="left">
+        <div>
+          <label for="carName">Car name:</label>
+          <input id="carName" type="text" formControlName="carName">
+        </div>
+        <div>
+          <label for="carKm">Kilometers:</label>
+          <input id="carKm" type="text" name="carKm" formControlName="carKm">
+        </div>
+        <div>
+          <label for="driver">Driver:</label>
+          <input id="driver" type="text" name="driver" formControlName="driver">
+        </div>
+        <div>
+          <label for="carImg">Car image:</label>
+          <input id="carImg" type="text" name="carImg" formControlName="carImg">
+        </div>
+        <div>
+          <p>Preview</p>
+          <img [src]="form.get('carImg').value" alt="car-image">
+        </div>
       </div>
-      <div>
-        <label for="carKm">Kilometers:</label>
-        <input id="carKm" type="text" ngModel name="carKm" required>
-      </div>
-      <div>
-        <label for="driver">Driver:</label>
-        <input id="driver" type="text" ngModel name="driver" required>
-      </div>
-      <div>
-        <label for="carImg">Car image:</label>
-        <input id="carImg" type="text" ngModel name="carImg" required>
-      </div>
-      <div>
-        <p>Preview</p>
-        <img [src]="f.value.carImg"
-             alt="car-image">
-      </div>
-      <div>
-        <span>Insurances:</span>
-        <div class="insurance">
+      <div class="right">
+        <span>Insurance</span>
+        <div class="insuranceNew" formGroupName="newInsurance">
           <div>
-            <label for="insName">Name</label>
-            <input id="insName" type="text">
+            <input id="newInsName" type="text" formControlName="newInsName" placeholder="Name">
           </div>
           <div>
-            <label for="insDate">Expiration Date</label>
-            <input id="insDate" type="text">
+            <input id="newInsDate" type="date" formControlName="newInsDate" placeholder="Date">
+          </div>
+          <button type="button" (click)="onAddInsurance()">Add</button>
+        </div>
+        <br>
+        <div class="insurance" formArrayName="insurances">
+          <div *ngFor="let ins of form.get('insurances').controls;let i = index" [formGroupName]="i">
+            <div>
+              <input id="insName" type="text" formControlName="insName">
+            </div>
+            <div>
+              <input id="insDate" type="text" formControlName="insDate">
+            </div>
+            <button (click)="onRemoveInsurance(i)">X</button>
           </div>
         </div>
       </div>
-      <button type="submit" [disabled]="!f.valid">Save car</button>
-      <button type="button">Add insurance</button>
     </div>
+    <button type="submit" [disabled]="!form.valid" (click)="onSave()">Save car</button>
   </form>
 </section>

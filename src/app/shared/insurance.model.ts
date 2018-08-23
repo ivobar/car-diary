@@ -1,4 +1,4 @@
 export interface Insurance {
-  name: string;
-  expirationDate: Date;
+  insDate: Date;
+  insName: string;
 }
