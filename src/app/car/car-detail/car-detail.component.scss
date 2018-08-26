@@ -1,9 +1,12 @@
-$bg-color: #607d8b;
-$nav-color: #3f51b5;
+/* cool vs warm color theme */
+$navy-blue: #18121E;
+$gunmetal: #233237;
+$rusty-red: #984B43;
+$warm-yellow: #EAC67A;
 
 @mixin verticalLine {
   height: 80%;
-  border: 1px none white;
+  border: 1px none $warm-yellow;
   border-left-style: solid;
   margin: 0 50px;
 }
@@ -12,7 +15,7 @@ $nav-color: #3f51b5;
   width: 30%;
   height: 80%;
   padding: 50px;
-  border: 1px none white;
+  border: 1px none $warm-yellow;
   border-top-style: solid;
   legend {
     color: white;
@@ -21,13 +24,17 @@ $nav-color: #3f51b5;
 }
 
 @mixin buttonStyle {
-  background-color: $bg-color;
-  border: 1px solid white;
+  background-color: $navy-blue;
+  border: 1px solid $warm-yellow;
   border-radius: 10px;
   padding: 15px 20px;
   cursor: pointer;
-  color: white;
+  color: $warm-yellow;
   text-transform: uppercase;
+  &:hover{
+    color: $rusty-red;
+    border-color: $rusty-red;
+  }
 }
 
 
@@ -54,8 +61,8 @@ section {
       button {
         @include buttonStyle;
       }
-      button:hover {
-        background-color: $nav-color;
+      button:first-of-type{
+        margin-right: 5px;
       }
     }
   }
@@ -67,9 +74,9 @@ section {
     display: flex;
     flex-wrap: wrap;
     .car-data {
-      width: 250px;
-      height: 100px;
-      background-color: #f5fafc;
+      width: 180px;
+      height: 70px;
+      background-color: $gunmetal;
       border-radius: 25px;
       display: flex;
       flex-direction: column;
@@ -77,25 +84,39 @@ section {
       justify-content: space-around;
       padding: 15px 0;
       margin: 5px;
+      position: relative;
       h3 {
         text-align: left;
         width: 80%;
-        font-size: 2em;
+        font-size: 1.5em;
         text-transform: lowercase;
         font-weight: lighter;
+        color: $warm-yellow;
       }
       hr {
-        color: #8b8b8b;
+        color: $warm-yellow;
         width: 80%;
         border: 1px solid;
       }
       p {
         text-align: right;
         width: 80%;
-        font-size: 2em;
-        color: #8b8b8b;
+        font-size: 1.5em;
+        color: $warm-yellow;
         font-style: italic;
       }
+      i{
+        position: absolute;
+        right: 15px;
+        top: -5px;
+        color: $warm-yellow;
+        font-size: 1.3em;
+      }
+    }
+    .alertDanger {
+      background-color: $rusty-red;
     }
   }
 }
+
+

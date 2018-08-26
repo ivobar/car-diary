@@ -1,22 +1,10 @@
-<app-car-head></app-car-head>
+<app-car-head [alerts]="alerts" [car]="car"></app-car-head>
 <section>
   <fieldset class="recent">
     <legend align="right">Recent services</legend>
-    <div class="recent-items">
-      <h4>Смяна агренаж</h4><span></span>
-      <p>150000</p>
-    </div>
-    <div class="recent-items">
-      <h4>Смяна масло</h4><span></span>
-      <p>145000</p>
-    </div>
-    <div class="recent-items">
-      <h4>Смяна гуми</h4><span></span>
-      <p>130000</p>
-    </div>
-    <div class="recent-items">
-      <h4>Смяна накладки</h4><span></span>
-      <p>129000</p>
+    <div class="recent-items" *ngFor="let service of services">
+      <h4>{{service.description}}</h4><span></span>
+      <p>{{service.km}}</p>
     </div>
     <div class="recent-items">
       <button [routerLink]="['/car',carId,'services','add']">Add service</button>
@@ -31,10 +19,11 @@
       <hr>
       <p>{{car.km}}</p>
     </div>
-    <div class="car-data" *ngFor="let ins of car.insurances">
+    <div class="car-data" [ngClass]="{alertDanger: alerts[i]}" *ngFor="let ins of car.insurances;let i = index;">
       <h3>{{ins.insName}}</h3>
       <hr>
-      <p>{{ins.insDate}}</p>
+      <p>{{ins.insDate | date: "mediumDate"}}</p>
+      <i class="fas fa-exclamation-circle" *ngIf="alerts[i]"></i>
     </div>
   </fieldset>
 </section>

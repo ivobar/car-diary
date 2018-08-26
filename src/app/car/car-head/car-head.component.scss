@@ -1,3 +1,9 @@
+/* cool vs warm color theme */
+$navy-blue: #18121E;
+$gunmetal: #233237;
+$rusty-red: #984B43;
+$warm-yellow: #EAC67A;
+
 section {
   display: flex;
   flex-direction: column;
@@ -5,18 +11,23 @@ section {
   align-items: center;
   img {
     margin-top: 25px;
-    width: 150px;
     height: 150px;
     border-radius: 50%;
   }
   h2 {
-    color: white;
-    margin-top: 5px;
+    color: $warm-yellow;
+    margin-top: 15px;
   }
   fieldset {
     width: 25%;
     text-align: center;
-    color: white;
+    color: $warm-yellow;
     margin: 15px 0;
+    border: none;
+    border-top: 1px solid $warm-yellow;
+  }
+  .alert-text {
+    color: $rusty-red;
+    font-size: 1.2em;
   }
 }

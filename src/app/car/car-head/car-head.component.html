@@ -1,10 +1,11 @@
 <section>
   <div>
-    <img src="https://i.ebayimg.com/images/g/JY8AAOSwe-FU8Rnx/s-l1600.jpg" alt="emblem">
+    <img [src]="car.carImg" alt="car-image">
   </div>
-  <h2>Car name</h2>
+  <h2>{{car.name}}</h2>
   <fieldset>
     <legend align="center">Alerts</legend>
-    <h4>No upcoming alerts</h4>
+    <h4 *ngIf="alertCount===0">No upcoming alerts</h4>
+    <h4 *ngIf="!(alertCount===0)" class="alert-text">You have {{alertCount}} new alerts! You must tend to your car!</h4>
   </fieldset>
 </section>

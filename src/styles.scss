@@ -1,16 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
+/* cool vs warm color theme */
+$navy-blue: #18121E;
+$gunmetal: #233237;
+$rusty-red: #984B43;
+$warm-yellow: #EAC67A;
 
-$bg-color: #607d8b;
-$nav-color: #3f51b5;
 
 * {
   margin: 0;
   padding: 0;
 }
 
-body {
-  background-color: $bg-color;
+html {
+  background: linear-gradient(rgba(24, 18, 30, 0.9),rgba(24, 18, 30,0.9)), url("./assets/engine-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-family: Lato, sans-serif;
 }
 

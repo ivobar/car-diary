@@ -14,7 +14,7 @@
       <td>{{car.driver}}</td>
       <div class="util">
         <i class="fas fa-eye" [routerLink]="['car','detail',i]"></i>
-        <i class="fas fa-pencil-alt"></i>
+        <i class="fas fa-pencil-alt" [routerLink]="['car','edit',i]"></i>
         <i class="fas fa-trash" (click)="onDeleteCar(i)"></i>
       </div>
     </tr>

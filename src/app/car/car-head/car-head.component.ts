@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-car-head',
@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-head.component.scss']
 })
 export class CarHeadComponent implements OnInit {
+  @Input() alerts;
+  @Input() car;
+  alertCount = 0;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    for (const alert of this.alerts) {
+      if (alert) {
+        this.alertCount++;
+      }
+    }
   }
 
 }

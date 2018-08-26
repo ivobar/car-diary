@@ -1,14 +1,21 @@
-$nav-color: #3f51b5;
-$bg-color: #607d8b;
+/* cool vs warm color theme */
+$navy-blue: #18121E;
+$gunmetal: #233237;
+$rusty-red: #984B43;
+$warm-yellow: #EAC67A;
 
 @mixin buttonStyle {
-  background-color: $bg-color;
-  border: 1px solid white;
+  background-color: $navy-blue;
+  border: 1px solid $warm-yellow;
   border-radius: 10px;
   padding: 15px 20px;
   cursor: pointer;
-  color: white;
+  color: $warm-yellow;
   text-transform: uppercase;
+  &:hover{
+    color: $rusty-red;
+    border-color: $rusty-red;
+  }
 }
 
 section {
@@ -28,8 +35,9 @@ section {
       }
     }
     th{
-      background-color: $nav-color;
+      background-color: $gunmetal;
       font-size: 1.2em;
+      color: $warm-yellow;
     }
     thead tr{
       height: 50px;
@@ -37,7 +45,7 @@ section {
     tr {
       height: 35px;
       position: relative;
-      border-bottom: 1px solid grey;
+      border-bottom: 1px solid $warm-yellow;
     }
     tbody {
       .util{
@@ -49,13 +57,14 @@ section {
         i{
           margin-right: 10px;
           &:hover{
-            color: $nav-color;
+            color: $rusty-red;
             cursor: pointer;
           }
         }
       }
       tr:hover {
-        box-shadow: 0 0 10px 2px #875a5a;
+        box-shadow: 0 0 10px 2px $warm-yellow;
+        color: $warm-yellow;
         .util{
           display: unset;
         }
@@ -69,10 +78,6 @@ section {
   button {
     @include buttonStyle;
     margin-top: 25px;
-  }
-
-  button:hover {
-    background-color: $nav-color;
   }
 }
 
