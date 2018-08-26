@@ -43,7 +43,7 @@ export class CarEditComponent implements OnInit {
             'insName': new FormControl({value: ins.insName, disabled: true}),
             'insDate': new FormControl({value: ins.insDate, disabled: true})
           })
-      );
+        );
       }
     }
 
@@ -69,7 +69,11 @@ export class CarEditComponent implements OnInit {
       services: [],
       insurances: this.form.get('insurances').value
     };
-    this.carSer.setCar(car);
+    if (this.editMode) {
+      this.carSer.editCar(car, this.id);
+    } else {
+      this.carSer.setCar(car);
+    }
     this.carSer.saveCars().subscribe(
       () => {
         this.router.navigate(['/']);

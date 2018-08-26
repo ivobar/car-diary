@@ -53,6 +53,10 @@ export class CarService {
     return {...this.cars[id]};
   }
 
+  editCar(car: Car, id: number) {
+    this.cars[id] = { ...car };
+  }
+
   deleteCar(id: number): void {
     this.cars.splice(id, 1);
     this.carsChanged.next();
