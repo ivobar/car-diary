@@ -33,14 +33,5 @@ export class CarDetailComponent implements OnInit {
         return 0;
       })
       .slice(0, 5);
-    for (const ins of this.car.insurances) {
-      this.alerts.push(this.getDaysDifference(ins.insDate));
-    }
-  }
-
-  getDaysDifference(date: Date): boolean {
-    const insDate = new Date(date);
-    const daysLeft = (insDate.valueOf() - Date.now()) / 1000 / 60 / 60 / 24;
-    return daysLeft < 10;
   }
 }

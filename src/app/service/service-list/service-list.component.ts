@@ -14,6 +14,7 @@ export class ServiceListComponent implements OnInit, OnDestroy {
   services: Service[];
   subs: Subscription;
   showServs = false;
+  carId: number;
 
   constructor(private serService: ServiceService,
               private route: ActivatedRoute,

@@ -11,7 +11,8 @@ const serviceRoutes: Routes = [
     path: 'car/:id/services', children: [
       {path: '', component: ServiceListComponent},
       {path: 'add', component: ServiceEditComponent},
-      {path: 'details/:serviceId', component: ServiceDetailComponent}
+      {path: 'details/:serviceId', component: ServiceDetailComponent},
+      {path: 'edit/:serviceId', component: ServiceEditComponent}
     ]
   },
   {path: 'guy/add', component: GuyAddComponent}

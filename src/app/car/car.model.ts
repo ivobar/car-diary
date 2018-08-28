@@ -8,4 +8,5 @@ export interface Car {
   carImg: string;
   services: Service[];
   insurances: Insurance[];
+  alerts: boolean[];
 }
