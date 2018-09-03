@@ -1,4 +1,4 @@
-<app-car-head [alerts]="alerts" [car]="car"></app-car-head>
+<app-car-head></app-car-head>
 <section>
   <fieldset class="recent">
     <legend align="right">Recent services</legend>
@@ -7,8 +7,8 @@
       <p>{{service.km}}</p>
     </div>
     <div class="recent-items">
-      <button [routerLink]="['/car',carId,'services','add']">Add service</button>
-      <button [routerLink]="['/car',carId,'services']">View all</button>
+      <button [routerLink]="['/cars/car',carId,'services','add']">Add service</button>
+      <button [routerLink]="['/cars/car',carId,'services']">View all</button>
     </div>
   </fieldset>
   <span></span>
@@ -19,11 +19,11 @@
       <hr>
       <p>{{car.km}}</p>
     </div>
-    <div class="car-data" [ngClass]="{alertDanger: alerts[i]}" *ngFor="let ins of car.insurances;let i = index;">
+    <div class="car-data" [ngClass]="{alertDanger: ins.alert}" *ngFor="let ins of car.insurances">
       <h3>{{ins.insName}}</h3>
       <hr>
       <p>{{ins.insDate | date: "mediumDate"}}</p>
-      <i class="fas fa-exclamation-circle" *ngIf="alerts[i]"></i>
+      <i class="fas fa-exclamation-circle" *ngIf="ins.alert"></i>
     </div>
   </fieldset>
 </section>

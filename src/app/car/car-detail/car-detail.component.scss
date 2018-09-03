@@ -41,10 +41,11 @@ $warm-yellow: #EAC67A;
 
 section {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin-top: 50px;
   height: 350px;
+  .controls{}
   fieldset.recent {
     @include fieldsetUserHome;
     border-right: none;

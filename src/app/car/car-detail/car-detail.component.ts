@@ -13,7 +13,6 @@ export class CarDetailComponent implements OnInit {
   car: Car;
   carId: number;
   services: Service[];
-  alerts: boolean[] = [];
 
   constructor(private carService: CarService,
               private route: ActivatedRoute) {

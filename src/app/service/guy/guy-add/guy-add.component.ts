@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 import {ServiceService} from '../../service.service';
 import {Subscription} from 'rxjs';
@@ -14,7 +15,8 @@ export class GuyAddComponent implements OnInit, OnDestroy {
   sub: Subscription;
 
   constructor(private serService: ServiceService,
-              private router: Router) {
+              private router: Router,
+              private location: Location) {
   }
 
   ngOnInit() {
@@ -38,6 +40,10 @@ export class GuyAddComponent implements OnInit, OnDestroy {
     if (this.sub) {
       this.sub.unsubscribe();
     }
+  }
+
+  onCancel() {
+    this.location.back();
   }
 
 }

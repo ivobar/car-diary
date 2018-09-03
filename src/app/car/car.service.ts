@@ -33,7 +33,7 @@ export class CarService {
         car.services = [];
       }
       for (const ins of car.insurances) {
-        this.alerts.push(this.getDaysDifference(ins.insDate));
+        ins.alert = this.getDaysDifference(ins.insDate);
       }
     }
     this.cars = [...cars];
@@ -57,6 +57,9 @@ export class CarService {
   }
 
   editCar(car: Car, id: number) {
+    for (const ins of car.insurances) {
+      ins.alert = this.getDaysDifference(ins.insDate);
+    }
     this.cars[id] = { ...car };
   }
 

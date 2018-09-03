@@ -46,6 +46,7 @@ section {
   button {
     @include buttonStyle;
     margin-top: 25px;
+    margin-right: 10px;
   }
 
   button:hover {

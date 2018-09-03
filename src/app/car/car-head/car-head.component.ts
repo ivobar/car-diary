@@ -1,4 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CarService} from '../car.service';
+import {Car} from '../car.model';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-car-head',
@@ -6,16 +9,17 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./car-head.component.scss']
 })
 export class CarHeadComponent implements OnInit {
-  @Input() alerts;
-  @Input() car;
+  car: Car;
   alertCount = 0;
 
-  constructor() {
+  constructor(private carServ: CarService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    for (const alert of this.alerts) {
-      if (alert) {
+    this.car = this.carServ.getCar(this.route.snapshot.params['id']);
+    for (const ins of this.car.insurances) {
+      if (ins.alert) {
         this.alertCount++;
       }
     }

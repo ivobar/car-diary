@@ -1,26 +1,21 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {Guy} from '../guy/guy.model';
+import {ServiceService} from '../service.service';
 import {NgForm} from '@angular/forms';
 import {Location} from '@angular/common';
+import {CarService} from '../../car/car.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
-import {Guy} from '../guy/guy.model';
-import {Service} from '../service.model';
-
-import {ServiceService} from '../service.service';
-import {CarService} from '../../car/car.service';
-
 @Component({
-  selector: 'app-service-edit',
-  templateUrl: './service-edit.component.html',
-  styleUrls: ['./service-edit.component.scss']
+  selector: 'app-service-add',
+  templateUrl: './service-add.component.html',
+  styleUrls: ['./service-add.component.scss']
 })
-export class ServiceEditComponent implements OnInit {
+export class ServiceAddComponent implements OnInit {
   @ViewChild('f') form: NgForm;
   carId: number;
-  serviceId: number;
   guys: Guy[];
   selectedGuyName: string;
-  serviceToEdit: Service;
 
   constructor(private route: ActivatedRoute,
               private serService: ServiceService,
@@ -31,14 +26,12 @@ export class ServiceEditComponent implements OnInit {
 
   ngOnInit() {
     this.carId = +this.route.snapshot.params['id'];
-    this.serviceId = +this.route.snapshot.params['serviceId'];
-    this.serviceToEdit = this.serService.getServices(this.carId)[this.serviceId];
-    this.selectedGuyName = this.serviceToEdit.guy.name;
     this.serService.loadGuys().subscribe(
       (guys: Guy[]) => {
         if (guys !== null) {
           this.serService.setGuys(guys);
           this.guys = [...this.serService.getGuys()];
+          this.selectedGuyName = this.guys[0]['name'];
         } else {
           this.guys = [];
         }
@@ -55,10 +48,10 @@ export class ServiceEditComponent implements OnInit {
       price: this.form.value.price,
       guy
     };
-    this.serService.editService(newService, this.carId, this.serviceId);
+    this.serService.addService(newService, this.carId);
     this.carService.saveCars().subscribe(
       () => {
-        this.router.navigate(['../../'], {relativeTo: this.route});
+        this.router.navigate(['../'], {relativeTo: this.route});
       }
     );
   }

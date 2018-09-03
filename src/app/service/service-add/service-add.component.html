@@ -3,7 +3,7 @@
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="form-left">
       <label for="description">Description</label>
-      <textarea id="description" name="description" [ngModel]="serviceToEdit.description" name="description"></textarea>
+      <textarea id="description" name="description" ngModel name="description"></textarea>
       <div>
         <button type="submit">Save</button>
         <button type="button" (click)="onCancel()">Cancel</button>
@@ -14,17 +14,17 @@
       <div class="group">
         <div class="icon-input">
           <i class="fas fa-calendar-alt"></i>
-          <input id="date" name="date" type="date" [ngModel]="serviceToEdit.date" name="date" required>
+          <input id="date" name="date" type="date" ngModel name="date" required>
         </div>
         <div class="icon-input">
           <i class="fas fa-tachometer-alt"></i>
-          <input id="km" name="km" type="text" [ngModel]="serviceToEdit.km" name="km" required>
+          <input id="km" name="km" type="text" ngModel name="km" required>
         </div>
       </div>
       <div>
         <div class="icon-input">
           <i class="fas fa-hand-holding-usd"></i>
-          <input id="price" name="price" type="text" [ngModel]="serviceToEdit.price" name="price" required>
+          <input id="price" name="price" type="text" ngModel name="price" required>
         </div>
       </div>
       <div>

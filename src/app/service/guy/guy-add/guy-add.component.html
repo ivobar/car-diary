@@ -15,7 +15,7 @@
         <input id="location" type="text" ngModel name="location" required>
       </div>
       <button type="submit" [disabled]="!f.valid">Save guy</button>
-      <button type="button">Cancel</button>
+      <button type="button" (click)="onCancel()">Cancel</button>
     </div>
   </form>
 </section>

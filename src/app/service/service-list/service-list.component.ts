@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Service} from '../service.model';
 import {ServiceService} from '../service.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CarService} from '../../car/car.service';
 import {Subscription} from 'rxjs';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-service-list',
@@ -18,7 +19,8 @@ export class ServiceListComponent implements OnInit, OnDestroy {
 
   constructor(private serService: ServiceService,
               private route: ActivatedRoute,
-              private carSer: CarService) {
+              private carSer: CarService,
+              private location: Location) {
   }
 
   ngOnInit() {
@@ -34,6 +36,10 @@ export class ServiceListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subs.unsubscribe();
+  }
+
+  onGoBack() {
+    this.location.back();
   }
 
 }

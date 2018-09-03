@@ -5,7 +5,6 @@ import {CarService} from '../car/car.service';
 
 import {Service} from './service.model';
 import {Guy} from './guy/guy.model';
-import {Car} from '../car/car.model';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -41,6 +40,12 @@ export class ServiceService {
   addService(service: Service, carId: number): void {
     const cars = this.carService.getCars();
     cars[carId].services.push(service);
+    this.carService.setCars(cars);
+  }
+
+  editService(service: Service, carId: number, serviceId: number): void {
+    const cars = this.carService.getCars();
+    cars[carId].services[serviceId] = service;
     this.carService.setCars(cars);
   }
 

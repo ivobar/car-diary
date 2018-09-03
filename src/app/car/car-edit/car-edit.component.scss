@@ -117,6 +117,7 @@ section {
     }
     button{
       @include buttonStyle;
+      margin-right: 10px;
     }
   }
 }

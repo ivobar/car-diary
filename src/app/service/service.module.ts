@@ -9,12 +9,14 @@ import {ServiceEditComponent} from './service-edit/service-edit.component';
 import {CarModule} from '../car/car.module';
 import {ServiceRoutingModule} from './service-routing.module';
 import {GuyAddComponent} from './guy/guy-add/guy-add.component';
+import {ServiceAddComponent} from './service-add/service-add.component';
 
 @NgModule({
   declarations: [
     ServiceListComponent,
     ServiceDetailComponent,
     ServiceEditComponent,
+    ServiceAddComponent,
     GuyAddComponent
   ],
   imports: [

@@ -16,7 +16,7 @@
     <tr *ngFor="let service of services;let i = index" [routerLink]="['details',i]">
       <td>{{i}}</td>
       <td>{{service.description}}</td>
-      <td>{{service.date}}</td>
+      <td>{{service.date | date :"longDate"}}</td>
       <td>{{service.km}}</td>
       <td>{{service.price}}</td>
       <td>{{service.guy.name}}</td>
@@ -24,4 +24,5 @@
     </tbody>
   </table>
   <button routerLink="add">Add service</button>
+  <button (click)="onGoBack()"><i class="fas fa-chevron-circle-left"></i></button>
 </section>

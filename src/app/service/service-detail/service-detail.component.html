@@ -3,8 +3,8 @@
   <div class="head">
     <h2>Service details</h2>
     <div>
-      <button>Back</button>
-      <button>Edit</button>
+      <button (click)="onGoBack()"><i class="fas fa-chevron-circle-left"></i></button>
+      <button [routerLink]="['../../edit', serviceId]">Edit</button>
     </div>
   </div>
   <hr>

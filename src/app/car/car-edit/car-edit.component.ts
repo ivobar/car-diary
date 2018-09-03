@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 import {CarService} from '../car.service';
 import {Car} from '../car.model';
@@ -17,7 +18,8 @@ export class CarEditComponent implements OnInit {
 
   constructor(private carSer: CarService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private lovation: Location) {
   }
 
   ngOnInit() {
@@ -92,5 +94,9 @@ export class CarEditComponent implements OnInit {
 
   onRemoveInsurance(i: number) {
     (<FormArray>this.form.get('insurances')).removeAt(i);
+  }
+
+  onCancel() {
+    this.lovation.back();
   }
 }
