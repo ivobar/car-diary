@@ -15,6 +15,7 @@ section {
   }
   .bot {
     display: flex;
+    justify-content: center;
     .card {
       border: 1px solid $warm-yellow;
       border-radius: 25px;

@@ -8,7 +8,7 @@
       <h3>{{guy.phone}}</h3>
       <h3>{{guy.location}}</h3>
       <div class="controls">
-        <i class="fas fa-pencil-alt"></i>
+        <i class="fas fa-pencil-alt" [routerLink]="['../',i,'edit']"></i>
         <i class="fas fa-trash" (click)="onDeleteGuy(i)"></i>
       </div>
     </div>

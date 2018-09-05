@@ -29,6 +29,11 @@ export class GuysService {
     this.guys = [...this.guys, guy];
   }
 
+  editGuy(guy: Guy, id: number) {
+    this.guys[id] = {...guy};
+    this.guysChanged.next();
+  }
+
   deleteGuy(index: number) {
     this.guys.splice(index, 1);
     this.guysChanged.next();
@@ -36,5 +41,9 @@ export class GuysService {
 
   getGuys(): Guy[] {
     return this.guys.slice();
+  }
+
+  getGuy(id: number): Guy {
+    return this.guys.slice()[id];
   }
 }

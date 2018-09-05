@@ -39,6 +39,7 @@ section {
       justify-content: center;
       align-items: center;
       margin: 15px 0;
+      width: 100%;
       label {
         color: white;
         margin-bottom: 5px;
@@ -66,8 +67,13 @@ section {
         color: white;
       }
     }
-    button {
-      @include buttonStyle;
+    .controls {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      button {
+        @include buttonStyle;
+      }
     }
   }
 }

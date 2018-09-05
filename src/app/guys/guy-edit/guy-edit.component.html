@@ -1,21 +1,23 @@
 <section>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div *ngIf="!f.submitted">
-      <h2>Add a guy:</h2>
+      <h2>Edit guy:</h2>
       <div>
         <label for="guyName">Guy name:</label>
-        <input id="guyName" type="text" ngModel name="guyName" required>
+        <input id="guyName" type="text" [ngModel]="guy.name" name="guyName" required>
       </div>
       <div>
         <label for="phone">Phone:</label>
-        <input id="phone" type="text" ngModel name="phone" required>
+        <input id="phone" type="text" [ngModel]="guy.phone" name="phone" required>
       </div>
       <div>
         <label for="location">Location:</label>
-        <input id="location" type="text" ngModel name="location" required>
+        <input id="location" type="text" [ngModel]="guy.location" name="location" required>
       </div>
-      <button type="submit" [disabled]="!f.valid">Save guy</button>
-      <button type="button" (click)="onCancel()">Cancel</button>
+      <div class="controls">
+        <button type="submit" [disabled]="!f.valid">Edit guy</button>
+        <button type="button" (click)="onCancel()">Cancel</button>
+      </div>
     </div>
   </form>
 </section>
