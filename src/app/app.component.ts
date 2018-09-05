@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CarService} from './car/car.service';
 import {Car} from './car/car.model';
 import {Subscription} from 'rxjs';
-import {LoaderService} from './core/loader.service';
 
 @Component({
   selector: 'app-root',

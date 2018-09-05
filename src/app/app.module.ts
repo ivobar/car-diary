@@ -9,6 +9,7 @@ import {CoreModule} from './core/core.module';
 import {CarModule} from './car/car.module';
 import {AuthModule} from './auth/auth.module';
 import {ServiceModule} from './service/service.module';
+import {GuysModule} from './guys/guys.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {ServiceModule} from './service/service.module';
     HttpClientModule,
     FormsModule,
     CarModule,
+    GuysModule,
     AuthModule,
     ServiceModule,
     CoreModule

@@ -3,8 +3,9 @@ import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 
-import {ServiceService} from '../../service.service';
 import {Subscription} from 'rxjs';
+
+import {GuysService} from '../guys.service';
 
 @Component({
   selector: 'app-guy-add',
@@ -14,7 +15,7 @@ import {Subscription} from 'rxjs';
 export class GuyAddComponent implements OnInit, OnDestroy {
   sub: Subscription;
 
-  constructor(private serService: ServiceService,
+  constructor(private guysService: GuysService,
               private router: Router,
               private location: Location) {
   }
@@ -28,10 +29,10 @@ export class GuyAddComponent implements OnInit, OnDestroy {
       phone: form.value.phone,
       location: form.value.location
     };
-    this.serService.addGuy(guy);
-    this.sub = this.serService.saveGuys().subscribe(
+    this.guysService.addGuy(guy);
+    this.sub = this.guysService.saveGuys().subscribe(
       () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/guys/list']);
       }
     );
   }

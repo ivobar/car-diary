@@ -3,11 +3,12 @@ import {NgForm} from '@angular/forms';
 import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 
-import {Guy} from '../guy/guy.model';
+import {Guy} from '../../guys/guy.model';
 import {Service} from '../service.model';
 
 import {ServiceService} from '../service.service';
 import {CarService} from '../../car/car.service';
+import {GuysService} from '../../guys/guys.service';
 
 @Component({
   selector: 'app-service-edit',
@@ -25,6 +26,7 @@ export class ServiceEditComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private serService: ServiceService,
               private carService: CarService,
+              private guysService: GuysService,
               private router: Router,
               private location: Location) {
   }
@@ -34,11 +36,11 @@ export class ServiceEditComponent implements OnInit {
     this.serviceId = +this.route.snapshot.params['serviceId'];
     this.serviceToEdit = this.serService.getServices(this.carId)[this.serviceId];
     this.selectedGuyName = this.serviceToEdit.guy.name;
-    this.serService.loadGuys().subscribe(
+    this.guysService.loadGuys().subscribe(
       (guys: Guy[]) => {
         if (guys !== null) {
-          this.serService.setGuys(guys);
-          this.guys = [...this.serService.getGuys()];
+          this.guysService.setGuys(guys);
+          this.guys = [...this.guysService.getGuys()];
         } else {
           this.guys = [];
         }
@@ -53,7 +55,8 @@ export class ServiceEditComponent implements OnInit {
       date: new Date(this.form.value.date),
       km: this.form.value.km,
       price: this.form.value.price,
-      guy
+      guy,
+      imgPath: this.form.value.imgPath
     };
     this.serService.editService(newService, this.carId, this.serviceId);
     this.carService.saveCars().subscribe(

@@ -5,25 +5,25 @@
     <div>
       <button (click)="onGoBack()"><i class="fas fa-chevron-circle-left"></i></button>
       <button [routerLink]="['../../edit', serviceId]">Edit</button>
+      <button (click)="onDeleteService()">Delete</button>
     </div>
   </div>
   <hr>
   <div>
     <h3>Description:</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit non quo sequi ut! Dignissimos, dolor eius fugit
-      in neque quae!</p>
+    <p>{{service.description}}</p>
     <br>
     <h3>Price:</h3>
-    <p>$15</p>
+    <p>{{service.price}}</p>
     <br>
     <h3>Guy:</h3>
-    <p>Boreto</p>
+    <p>{{service.guy.name}}</p>
     <br>
     <h3>Date completed:</h3>
-    <p>15/07/2018</p>
+    <p>{{service.date | date: 'longDate'}}</p>
     <br>
     <h3>Picture:</h3>
-    <img src="https://support.joinhandshake.com/hc/article_attachments/115026121948/mceclip4.png" alt="picture">
+    <img [src]="service.imgPath" alt="picture">
   </div>
 </section>
 

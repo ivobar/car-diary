@@ -1,4 +1,4 @@
-import {Guy} from './guy/guy.model';
+import {Guy} from '../guys/guy.model';
 
 export interface Service {
   description: string;
@@ -6,4 +6,5 @@ export interface Service {
   km: string;
   price: number;
   guy: Guy;
+  imgPath: string;
 }

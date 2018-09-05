@@ -1,0 +1,71 @@
+/* cool vs warm color theme */
+$navy-blue: #18121E;
+$gunmetal: #233237;
+$rusty-red: #984B43;
+$warm-yellow: #EAC67A;
+
+section {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .top {
+    text-align: center;
+  }
+  .bot {
+    display: flex;
+    .card {
+      border: 1px solid $warm-yellow;
+      border-radius: 25px;
+      width: 23%;
+      height: 150px;
+      text-align: center;
+      color: $warm-yellow;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      padding: 25px 0;
+      margin: 15px;
+      .controls {
+        position: absolute;
+        top: 42%;
+        width: 100%;
+        display: none;
+        i {
+          font-size: 1.5em;
+          &:hover {
+            cursor: pointer;
+            color: $rusty-red;
+          }
+        }
+      }
+      &:hover {
+        box-shadow: 0 0 10px 2px $warm-yellow;
+        h2, h3 {
+          opacity: 0.2;
+        }
+        .controls {
+          display: flex;
+          justify-content: space-around;
+          color: $warm-yellow;
+        }
+      }
+    }
+  }
+  button {
+    margin-top: 25px;
+    background-color: transparent;
+    border: 1px solid $warm-yellow;
+    padding: 15px;
+    border-radius: 50%;
+    color: $warm-yellow;
+    font-size: 1.2em;
+    &:hover {
+      cursor: pointer;
+      background-color: $navy-blue;
+      box-shadow: 0 0 10px 2px $warm-yellow;
+    }
+  }
+}

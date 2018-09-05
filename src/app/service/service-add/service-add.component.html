@@ -29,6 +29,12 @@
       </div>
       <div>
         <div class="icon-input">
+          <i class="far fa-image"></i>
+          <input id="imgPath" name="imgPath" type="text" ngModel name="imgPath" required>
+        </div>
+      </div>
+      <div>
+        <div class="icon-input">
           <i class="far fa-user"></i>
           <select [(ngModel)]="selectedGuyName" name="guyName" id="guyName" required>
             <option *ngFor="let guy of guys;" [value]="guy.name">{{guy.name}}</option>
@@ -37,4 +43,5 @@
       </div>
     </div>
   </form>
+  <img [src]="f.value.imgPath" alt="service-image">
 </section>

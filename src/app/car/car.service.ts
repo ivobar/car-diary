@@ -44,6 +44,9 @@ export class CarService {
   }
 
   setCar(car: Car) {
+    for (const ins of car.insurances) {
+      ins.alert = this.getDaysDifference(ins.insDate);
+    }
     this.cars.push(car);
     this.carsChanged.next();
   }
