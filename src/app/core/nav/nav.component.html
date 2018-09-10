@@ -5,7 +5,7 @@
   </div>
   <ul>
     <li><a *ngIf="isLogged" routerLink="/guys">My Guys</a></li>
-    <li><a *ngIf="isLogged" routerLink="cars/car/add">Add car</a></li>
+    <li><a *ngIf="isLogged" routerLink="/cars/car/add">Add car</a></li>
     <li><a *ngIf="!isLogged" routerLink="login">Login</a></li>
     <li><a *ngIf="!isLogged" routerLink="register">Register</a></li>
     <li><a *ngIf="isLogged" (click)="onLogout()">Logout</a></li>
