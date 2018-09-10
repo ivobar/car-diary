@@ -16,6 +16,10 @@ $marginTop: 20px auto;
   cursor: pointer;
   color: white;
   text-transform: uppercase;
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
 }
 
 section {

@@ -1,4 +1,7 @@
-<section>
+<section *ngIf="guys.length === 0">
+  <h2>There are no guys added to your account - please add some from the menu above!</h2>
+</section>
+<section *ngIf="!(guys.length === 0)">
   <div class="top">
     <button [routerLink]="['../add']"><i class="fas fa-user-plus"></i></button>
   </div>

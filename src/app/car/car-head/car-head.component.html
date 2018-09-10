@@ -2,7 +2,7 @@
   <div>
     <img [src]="car.carImg" alt="car-image">
   </div>
-  <h2>{{car.name}}</h2>
+  <h2 [routerLink]="['/cars','car',carId,'detail']">{{car.name}}</h2>
   <fieldset>
     <legend align="center">Alerts</legend>
     <h4 *ngIf="alertCount===0">No upcoming alerts</h4>

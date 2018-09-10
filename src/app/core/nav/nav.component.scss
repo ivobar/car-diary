@@ -23,7 +23,7 @@ nav {
       font-size: 1.3em;
       text-decoration: none;
       &:hover{
-        color: $rusty-red;
+        text-shadow: 0 0 5px $warm-yellow;
       }
     }
   }
@@ -37,6 +37,7 @@ nav {
         color: $warm-yellow;
         &:hover{
           color: $rusty-red;
+          cursor: pointer;
         }
       }
     }

@@ -7,7 +7,7 @@ import {LoaderService} from '../loader.service';
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent implements OnInit {
-  loading = true;
+  loading = false;
 
   constructor(private loaderService: LoaderService) {
   }

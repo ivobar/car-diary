@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {CarService} from '../car.service';
 import {Car} from '../car.model';
 import {Subscription} from 'rxjs';
+import {AuthService} from '../../auth/auth.service';
+import {User} from 'firebase';
 
 @Component({
   selector: 'app-car-list',
@@ -11,16 +13,24 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./car-list.component.scss']
 })
 export class CarListComponent implements OnInit, OnDestroy {
-  cars: Car[];
+  cars: Car[] = [];
   carsChanges: Subscription;
   carsSavedSub: Subscription;
+  carSub: Subscription;
 
   constructor(private carServ: CarService,
               private router: Router) {
   }
 
   ngOnInit() {
-    this.cars = this.carServ.getCars();
+    this.carSub = this.carServ.loadCars().subscribe(
+      (data: Car[]) => {
+        if (data !== null) {
+          this.carServ.setCars(data);
+          this.cars = this.carServ.getCars();
+        }
+      }
+    );
     this.carsChanges = this.carServ.carsChanged.subscribe(
       () => {
         this.cars = this.carServ.getCars();
@@ -39,5 +49,6 @@ export class CarListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.carsChanges.unsubscribe();
+    this.carSub.unsubscribe();
   }
 }

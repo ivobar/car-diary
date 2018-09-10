@@ -78,7 +78,12 @@ export class CarEditComponent implements OnInit {
     }
     this.carSer.saveCars().subscribe(
       () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/cars'])
+          .catch(
+            (err) => {
+              alert(err.message);
+            }
+          );
       }
     );
   }

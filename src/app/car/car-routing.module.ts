@@ -5,11 +5,11 @@ import {CarDetailComponent} from './car-detail/car-detail.component';
 import {CarListComponent} from './car-list/car-list.component';
 import {CarEditComponent} from './car-edit/car-edit.component';
 import {CarService} from './car.service';
+import {AuthGuardService} from '../auth/auth.guard.service';
 
 const carRoutes: Routes = [
   {
-    path: 'cars', children: [
-      {path: '', component: CarListComponent},
+    path: 'cars', component: CarListComponent, canActivate: [AuthGuardService], children: [
       {path: 'car/add', component: CarEditComponent},
       {path: 'car/:id/detail', component: CarDetailComponent},
       {path: 'car/:id/edit', component: CarEditComponent}

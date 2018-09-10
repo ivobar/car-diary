@@ -3,14 +3,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {GuyAddComponent} from './guy-add/guy-add.component';
 import {GuyEditComponent} from './guy-edit/guy-edit.component';
 import {GuyListComponent} from './guy-list/guy-list.component';
+import {AuthGuardService} from '../auth/auth.guard.service';
 
 
 const guysRoutes: Routes = [
   {
-    path: 'guys', children: [
+    path: 'guys', component: GuyListComponent, canActivateChild: [AuthGuardService], children: [
       {path: 'add', component: GuyAddComponent},
-      {path: ':guyId/edit', component: GuyEditComponent},
-      {path: 'list', component: GuyListComponent}
+      {path: ':guyId/edit', component: GuyEditComponent}
     ]
   }
 ];

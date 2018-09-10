@@ -17,6 +17,10 @@ section {
   h2 {
     color: $warm-yellow;
     margin-top: 15px;
+    &:hover {
+      cursor: pointer;
+      text-shadow: 0 0 5px $warm-yellow;
+    }
   }
   fieldset {
     width: 25%;

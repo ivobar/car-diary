@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpRequest} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 import {Car} from './car.model';
 import {Observable, Subject} from 'rxjs';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +14,20 @@ export class CarService {
   carsChanged = new Subject();
   carsAdded = new Subject();
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient,
+              private authService: AuthService) {
   }
 
   loadCars(): Observable<Car[]> {
-    return this.httpClient.get<Car[]>('https://car-diary-bb6a2.firebaseio.com/cars.json');
+    const userId = this.authService.userId;
+    const token = this.authService.token;
+    return this.httpClient.get<Car[]>(`https://car-diary-bb6a2.firebaseio.com/users/${userId}/cars.json?auth=${token}`);
   }
 
   saveCars(): Observable<Car[]> {
-    return this.httpClient.put<Car[]>('https://car-diary-bb6a2.firebaseio.com/cars.json', this.cars);
+    const userId = this.authService.userId;
+    const token = this.authService.token;
+    return this.httpClient.put<Car[]>(`https://car-diary-bb6a2.firebaseio.com/users/${userId}/cars.json?auth=${token}`, this.cars);
   }
 
   setCars(cars: Car[]) {
@@ -63,7 +69,7 @@ export class CarService {
     for (const ins of car.insurances) {
       ins.alert = this.getDaysDifference(ins.insDate);
     }
-    this.cars[id] = { ...car };
+    this.cars[id] = {...car};
   }
 
   deleteCar(id: number): void {

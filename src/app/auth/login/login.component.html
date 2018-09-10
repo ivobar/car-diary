@@ -1,13 +1,13 @@
 <section>
-  <form>
+  <form (ngSubmit)="onUserLogin(f)" #f="ngForm">
     <h2>Login:</h2>
     <div>
       <label for="email">Email:</label>
-      <input id="email" type="email">
+      <input id="email" type="email" ngModel name="email" required email>
     </div>
     <div>
       <label for="pass">Password:</label>
-      <input id="pass" type="password">
+      <input id="pass" type="password" ngModel name="password" required>
     </div>
     <button type="submit">Login</button>
   </form>

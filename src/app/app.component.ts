@@ -1,30 +1,21 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {CarService} from './car/car.service';
-import {Car} from './car/car.model';
-import {Subscription} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import * as firebase from 'firebase';
+import {AuthService} from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
-  carSub: Subscription;
-
-  constructor(private carService: CarService) {
-  }
+export class AppComponent implements OnInit {
 
   ngOnInit() {
-    this.carSub = this.carService.loadCars().subscribe(
-      (data: Car[]) => {
-        if (data !== null) {
-          this.carService.setCars(data);
-        }
-      }
-    );
-  }
-
-  ngOnDestroy() {
-    this.carSub.unsubscribe();
+    const config = {
+      apiKey: 'AIzaSyC9og-mVl0ScQIPybQ0nInS384q8dIwKFE',
+      authDomain: 'car-diary-bb6a2.firebaseapp.com',
+      databaseURL: 'https://car-diary-bb6a2.firebaseio.com',
+      projectId: 'car-diary-bb6a2'
+    };
+    firebase.initializeApp(config);
   }
 }

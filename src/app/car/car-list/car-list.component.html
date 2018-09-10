@@ -1,3 +1,6 @@
+<section *ngIf="cars.length===0">
+  <h2>There are no cars linked to your account - you can add some from the menu above!</h2>
+</section>
 <section *ngIf="!(cars.length===0)">
   <table>
     <thead>

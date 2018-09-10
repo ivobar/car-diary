@@ -4,10 +4,10 @@
     <a routerLink="/">Car Diary Home</a>
   </div>
   <ul>
-    <li><a routerLink="/guys/list">My Guys</a></li>
-    <li><a routerLink="cars/car/add">Add car</a></li>
-    <li><a routerLink="login">Login</a></li>
-    <li><a routerLink="register">Register</a></li>
-    <li><a href="">Logout</a></li>
+    <li><a *ngIf="isLogged" routerLink="/guys">My Guys</a></li>
+    <li><a *ngIf="isLogged" routerLink="cars/car/add">Add car</a></li>
+    <li><a *ngIf="!isLogged" routerLink="login">Login</a></li>
+    <li><a *ngIf="!isLogged" routerLink="register">Register</a></li>
+    <li><a *ngIf="isLogged" (click)="onLogout()">Logout</a></li>
   </ul>
 </nav>

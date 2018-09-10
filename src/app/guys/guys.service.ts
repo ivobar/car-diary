@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
 import {Guy} from './guy.model';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +11,16 @@ export class GuysService {
   guys: Guy[];
   guysChanged = new Subject();
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient,
+              private authService: AuthService) {
   }
 
   loadGuys(): Observable<Guy[]> {
-    return this.httpClient.get<Guy[]>('https://car-diary-bb6a2.firebaseio.com/guys.json');
+    return this.httpClient.get<Guy[]>(`https://car-diary-bb6a2.firebaseio.com/users/${this.authService.userId}/guys.json?auth=${this.authService.token}`);
   }
 
   saveGuys(): Observable<Guy[]> {
-    return this.httpClient.put<Guy[]>('https://car-diary-bb6a2.firebaseio.com/guys.json', this.guys);
+    return this.httpClient.put<Guy[]>(`https://car-diary-bb6a2.firebaseio.com/users/${this.authService.userId}/guys.json?auth=${this.authService.token}`, this.guys);
   }
 
   setGuys(guys: Guy[]): void {

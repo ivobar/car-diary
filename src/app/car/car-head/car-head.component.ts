@@ -11,13 +11,15 @@ import {ActivatedRoute} from '@angular/router';
 export class CarHeadComponent implements OnInit {
   car: Car;
   alertCount = 0;
+  carId: number;
 
   constructor(private carServ: CarService,
               private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.car = this.carServ.getCar(this.route.snapshot.params['id']);
+    this.carId = +this.route.snapshot.params['id'];
+    this.car = this.carServ.getCar(this.carId);
     for (const ins of this.car.insurances) {
       if (ins.alert) {
         this.alertCount++;

@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 export class GuyListComponent implements OnInit, OnDestroy {
   guySub: Subscription;
   guysChangesSub: Subscription;
-  guys: Guy[];
+  guys: Guy[] = [];
 
   constructor(private guysService: GuysService,
               private router: Router) {

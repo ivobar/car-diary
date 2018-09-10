@@ -1,18 +1,18 @@
 <section>
-  <form>
+  <form (ngSubmit)="onUserRegister(f)" #f="ngForm">
     <h2>Register:</h2>
     <div>
       <label for="email">Email:</label>
-      <input id="email" type="email">
+      <input id="email" type="email" ngModel name="email" required email>
     </div>
     <div>
       <label for="pass">Password:</label>
-      <input id="pass" type="password">
+      <input id="pass" type="password" [(ngModel)]="pass" name="password" required>
     </div>
     <div>
       <label for="rePass">Repeat Password:</label>
-      <input id="rePass" type="password">
+      <input id="rePass" type="password" [(ngModel)]="repass" name="rePass" required>
     </div>
-    <button type="submit">Register</button>
+    <button type="submit" [disabled]="!f.valid || pass!==repass">Register</button>
   </form>
 </section>
