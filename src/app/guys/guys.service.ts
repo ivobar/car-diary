@@ -48,4 +48,9 @@ export class GuysService {
   getGuy(id: number): Guy {
     return this.guys.slice()[id];
   }
+
+  clearGuys(): void {
+    this.guys = [];
+    this.guysChanged.next();
+  }
 }

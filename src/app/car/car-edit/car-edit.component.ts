@@ -19,7 +19,7 @@ export class CarEditComponent implements OnInit {
   constructor(private carSer: CarService,
               private router: Router,
               private route: ActivatedRoute,
-              private lovation: Location) {
+              private location: Location) {
   }
 
   ngOnInit() {
@@ -102,6 +102,6 @@ export class CarEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.lovation.back();
+    this.location.back();
   }
 }

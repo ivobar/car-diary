@@ -9,7 +9,8 @@ import {AuthGuardService} from '../auth/auth.guard.service';
 
 const carRoutes: Routes = [
   {
-    path: 'cars', component: CarListComponent, pathMatch: 'full', canActivate: [AuthGuardService], children: [
+    path: 'cars', canActivate: [AuthGuardService], children: [
+      {path: '', component: CarListComponent},
       {path: 'car/add', component: CarEditComponent},
       {path: 'car/:id/detail', component: CarDetailComponent},
       {path: 'car/:id/edit', component: CarEditComponent}

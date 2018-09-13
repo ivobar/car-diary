@@ -3,6 +3,8 @@ import * as firebase from 'firebase';
 import {User} from './user.model';
 import {Router} from '@angular/router';
 import {Subject} from 'rxjs';
+import {GuysService} from '../guys/guys.service';
+import {CarService} from '../car/car.service';
 
 @Injectable({
   providedIn: 'root'

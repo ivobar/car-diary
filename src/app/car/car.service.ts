@@ -82,4 +82,8 @@ export class CarService {
     const daysLeft = (insDate.valueOf() - Date.now()) / 1000 / 60 / 60 / 24;
     return daysLeft < 10;
   }
+
+  clearCars(): void {
+    this.cars = [];
+  }
 }

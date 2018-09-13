@@ -1,9 +1,12 @@
 <section *ngIf="guys.length === 0">
+  <div class="top">
+    <button [routerLink]="['add']"><i class="fas fa-user-plus"></i></button>
+  </div>
   <h2>There are no guys added to your account - please add some from the menu above!</h2>
 </section>
 <section *ngIf="!(guys.length === 0)">
   <div class="top">
-    <button [routerLink]="['../add']"><i class="fas fa-user-plus"></i></button>
+    <button [routerLink]="['add']"><i class="fas fa-user-plus"></i></button>
   </div>
   <div class="bot">
     <div class="card" *ngFor="let guy of guys;let i = index;">
@@ -11,7 +14,7 @@
       <h3>{{guy.phone}}</h3>
       <h3>{{guy.location}}</h3>
       <div class="controls">
-        <i class="fas fa-pencil-alt" [routerLink]="['../',i,'edit']"></i>
+        <i class="fas fa-pencil-alt" [routerLink]="[i,'edit']"></i>
         <i class="fas fa-trash" (click)="onDeleteGuy(i)"></i>
       </div>
     </div>

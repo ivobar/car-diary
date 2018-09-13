@@ -32,7 +32,7 @@ export class GuyAddComponent implements OnInit, OnDestroy {
     this.guysService.addGuy(guy);
     this.sub = this.guysService.saveGuys().subscribe(
       () => {
-        this.router.navigate(['/guys/list']);
+        this.router.navigate(['/guys']);
       }
     );
   }

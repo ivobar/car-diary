@@ -19,7 +19,7 @@ $warm-yellow: #EAC67A;
   cursor: pointer;
   color: $warm-yellow;
   text-transform: uppercase;
-  &:hover{
+  &:hover {
     color: $rusty-red;
     border-color: $rusty-red;
   }
@@ -55,10 +55,10 @@ section {
       text-align: center;
       color: $warm-yellow;
     }
-    label{
+    label {
       color: $warm-yellow;
     }
-    p{
+    p {
       color: $warm-yellow;
     }
     .form-controls {
@@ -66,16 +66,16 @@ section {
       .left {
         width: 50%;
         margin-right: 10px;
-        div{
+        div {
           display: flex;
           @include flexCol;
           margin-top: 10px;
-          input{
+          input {
             @include inputSts;
             margin-top: 2px;
           }
         }
-        img{
+        img {
           height: 150px;
         }
       }
@@ -84,38 +84,38 @@ section {
         width: 50%;
         margin-top: 10px;
         text-align: center;
-        .insuranceNew{
+        .insuranceNew {
           display: flex;
-          div{
-            input{
+          div {
+            input {
               @include inputSts;
               margin-top: 2px;
               width: 95%;
             }
-            #newInsDate{
+            #newInsDate {
               padding: 12px 10px;
             }
-            button{
+            button {
               padding: 11px 20px;
             }
           }
         }
-        .insurance{
-          div{
+        .insurance {
+          div {
             display: flex;
             margin-top: 4px;
           }
-          input{
+          input {
             @include inputSts;
             width: 95%;
           }
-          button{
+          button {
             padding: 11px 20px;
           }
         }
       }
     }
-    button{
+    button {
       @include buttonStyle;
       margin-right: 10px;
     }

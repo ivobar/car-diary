@@ -36,7 +36,7 @@ export class GuyListComponent implements OnInit, OnDestroy {
     this.guysService.deleteGuy(index);
     this.guysService.saveGuys().subscribe(
       () => {
-        this.router.navigate(['/guys/list']);
+        this.router.navigate(['/guys']);
       }
     );
   }

@@ -1,6 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {Subscription} from 'rxjs';
+import {GuysService} from '../../guys/guys.service';
+import {CarService} from '../../car/car.service';
 
 @Component({
   selector: 'app-nav',
@@ -11,7 +13,9 @@ export class NavComponent implements OnInit, OnDestroy {
   isLogged = false;
   authStatChanSub: Subscription;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private guysService: GuysService,
+              private carsService: CarService) {
   }
 
   ngOnInit() {
@@ -24,6 +28,8 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   onLogout() {
+    this.guysService.clearGuys();
+    this.carsService.clearCars();
     this.authService.signOut();
   }
 

@@ -34,12 +34,12 @@ export class GuyEditComponent implements OnInit {
     this.guysService.editGuy(newGuy, this.guyId);
     this.guysService.saveGuys().subscribe(
       () => {
-        this.router.navigate(['/guys/list']);
+        this.router.navigate(['/guys']);
       }
     );
   }
 
   onCancel() {
-    this.router.navigate(['/guys/list']);
+    this.router.navigate(['/guys']);
   }
 }
